@@ -2,5 +2,5 @@
 
 from Lover import Lover
 
-lover = Lover('15263142800', 'xza2201367')
+lover = Lover('xx', 'xx')
 lover.auto_care()
