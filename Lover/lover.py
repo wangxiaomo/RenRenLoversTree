@@ -1,8 +1,7 @@
 #-*- coding: utf-8 -*-
-import urllib
-import urllib2
 
 from config import *
+import json
 import urllib,urllib2,cookielib
 
 class Lover:
@@ -36,7 +35,8 @@ class Lover:
         try:
             req = urllib2.Request(url, urllib.urlencode(params))
             r   = self.opener.open(req).read()
-            print r
+            r   = json.loads(r)
+            print "%s %s" % (url, r['success'])
         except:
             raise "***Exception:\n%s\n%s" % (url, r)
 
