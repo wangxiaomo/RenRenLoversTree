@@ -1,4 +1,4 @@
 #-*- coding: utf-8 -*-
 
 from .config import *
-from .lover import Lover
+from .lover  import Lover

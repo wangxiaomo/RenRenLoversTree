@@ -35,11 +35,11 @@ class Lover:
         try:
             req = urllib2.Request(url, urllib.urlencode(params))
             r   = self.opener.open(req).read()
-            r   = json.loads(r)
-            print "%s %s" % (url, r['success'])
+            # r   = json.loads(r)
+            print "%s %s" % (url, r)
         except:
             raise "***Exception:\n%s\n%s" % (url, r)
 
     def auto_care(self):
         for url in (SUN,SUN,WATER,WATER):
-            self.do_action(url)
+            self.do_action(url+"?pid=600339108")
