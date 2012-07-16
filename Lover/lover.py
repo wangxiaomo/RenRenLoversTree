@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
 
 from config import *
+
 import re
 import json
 import urllib,urllib2,cookielib
@@ -11,6 +12,7 @@ class Lover:
         self.password = password
         self.pid = None
 
+        """ 如果有 renren.cookiejar 的话.复用登陆....貌似没成功过.FIX """
         cj = cookielib.LWPCookieJar()
         try:
             cj.revert('renren,cookie')
