@@ -1,0 +1,30 @@
+How To Use
+=====================================================
+1.下载 Lover/
+2.新建 my.py 
+3.写入如下内容：
+    #-*- coding: utf-8 -*-
+
+    from Lover import Lover
+
+    accounts = [
+            {'username':'xxxxxxxxxx', 'password':'xxxxxxxxxxxx'},
+            {'username':'yyyyyyyyyy', 'password':'yyyyyyyyyyyy'},
+    ]
+    
+    for user in accounts:
+        lover = Lover(user['username'], user['password'])
+        lover.auto_care()
+
+
+Log
+=====================================================
+╰─$ python my.py                                                                                        
+http://lover.renren.com/app/tree/op/sunning?pid=600339108 {"curScore":19190.25,"curStage":3,"msg":"","score":4,"success":true,"targetStage":3,"upgrade":false}
+http://lover.renren.com/app/tree/op/sunning?pid=600339108 {"curScore":19194.25,"curStage":3,"msg":"","score":4,"success":true,"targetStage":3,"upgrade":false}
+http://lover.renren.com/app/tree/op/watering?pid=600339108 {"curScore":19198.25,"curStage":3,"msg":"","score":4,"success":true,"targetStage":3,"upgrade":false}
+http://lover.renren.com/app/tree/op/watering?pid=600339108 {"curScore":19202.25,"curStage":3,"msg":"","score":4,"success":true,"targetStage":4,"upgrade":true}
+http://lover.renren.com/app/tree/op/sunning?pid=600339108 {"curScore":19206.25,"curStage":4,"msg":"","score":4,"success":true,"targetStage":4,"upgrade":false}
+http://lover.renren.com/app/tree/op/sunning?pid=600339108 {"curScore":19210.25,"curStage":4,"msg":"","score":4,"success":true,"targetStage":4,"upgrade":false}
+http://lover.renren.com/app/tree/op/watering?pid=600339108 {"curScore":19214.25,"curStage":4,"msg":"","score":4,"success":true,"targetStage":4,"upgrade":false}
+http://lover.renren.com/app/tree/op/watering?pid=600339108 {"curScore":19218.25,"curStage":4,"msg":"","score":4,"success":true,"targetStage":4,"upgrade":false}
