@@ -1,4 +1,6 @@
 #-*- coding: utf-8 -*-
+import urllib
+import urllib2
 
 from config import *
 
@@ -22,6 +24,14 @@ class Lover:
         urllib2.install_opener(self.opener)
         self.login()
 
+    def _request_over_robots(self, url, bodies={}, headers={}):
+        try:
+            request = urllib2.Request(url, urllib.urlencode(bodies))
+            request.add_header('User-Agent', 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:12.0) Gecko/20100101 Firefox/12.0')
+        except:
+            raise Exception("Build Request Error")
+        return self.opener.open(request)
+
     def login(self):
         params = {
             'email':self.username,
@@ -29,8 +39,9 @@ class Lover:
             'domain': LOGIN_DOMAIN,
         }
         try:
-            req = urllib2.Request(LOGIN_PAGE, urllib.urlencode(params))
-            r = self.opener.open(req).read()
+            #req = urllib2.Request(LOGIN_PAGE, urllib.urlencode(params))
+            #r = self.opener.open(req).read()
+            r = self._request_over_robots(LOGIN_PAGE, params).read()
             try:
                 pid = re.findall(r'http://lover.renren.com/(\d+)', r)[0]
             except:
@@ -42,8 +53,9 @@ class Lover:
     def do_action(self, url):
         params = { 'domain':LOVER_DOMAIN }
         try:
-            req = urllib2.Request(url, urllib.urlencode(params))
-            r   = self.opener.open(req).read()
+            #req = urllib2.Request(url, urllib.urlencode(params))
+            #r   = self.opener.open(req).read()
+            r = self._request_over_robots(url, params).read()
             print "%s %s" % (url, r)
         except Exception, e:
             raise "***Exception:\n%s\n%s" % (url, str(e))
