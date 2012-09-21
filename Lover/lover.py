@@ -5,6 +5,7 @@ from config import *
 import re
 import json
 import urllib,urllib2,cookielib
+from datetime import datetime
 
 class Lover:
     def __init__(self, username, password):
@@ -54,7 +55,7 @@ class Lover:
             #req = urllib2.Request(url, urllib.urlencode(params))
             #r   = self.opener.open(req).read()
             r = self._request_over_robots(url, params).read()
-            print "%s %s" % (url, r)
+            print "%s %s %s" % (str(datetime.now()), url, r)
         except Exception, e:
             raise "***Exception:\n%s\n%s" % (url, str(e))
 
